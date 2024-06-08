@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vendas Filtradas</title>
+    <meta charset="UTF-8">
+    <!-- Adicionando Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-color:light">
+<div class="main">
+    <section>
+        <div class="row ml-4 mt-4 mb-0">
+            <h3 class="ml-3">Vendas Filtradas</h3>
+        </div>
+        <div class="row mt-0 ml-4 mr-4">
+            <div class="col-lg-3 col-md-12 mt-2" >
+                <div class="card p-4 " >
+                    <form id="formularioUsuario">
+                        <div class="form-group">
+                            <label for="dataInicio" class="label__input">Data Início:</label>
+                            <input type="date" id="dataInicio" name="dataInicio" class="form-control" aria-describedby="dataInicio">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dataFim" class="label__input">Data Fim:</label>
+                            <input type="date" id="dataFim" name="dataFim" class="form-control">
+                        </div>
+                        <hr/>
+                        <div class="form-group"  >
+                            <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="col-lg-9 col-md-12 mt-2" >
+                <div class="card p-4" style="height: 600px; overflow-y: auto;">
+                    <table class="table" id="tabelaUsuario">
+                        <thead class="thead-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>ID DO CLIENTE</th>
+                            <th>DATA DE VENDA</th>
+                            <th>TOTAL</th>
+                            <th>OBS.</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="venda : ${vendas}">
+                            <td th:text="${venda.id}">ID</td>
+                            <td th:text="${venda.clienteId}">ID DO CLIENTE</td>
+                            <td th:text="${#dates.format(venda.dataVenda, 'dd/MM/yyyy')}">DATA DE VENDA</td>
+                            <td th:text="${venda.total}">TOTAL</td>
+                            <td th:text="${venda.observacoes}">OBS.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+</div>
+
+<!-- Adicionando scripts do Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
