@@ -1,6 +1,8 @@
-## Aplicativo Ponto de Venda (PDV)
+### Aplicativo Ponto de Venda (PDV)
 
-### Nome: Erick Daniel Teixeira Vier - RA: 235908-1
+##### Nome: Erick Daniel Teixeira Vier - RA: 235908-1
+
+##
 
 #### Construindo o Projeto
 
